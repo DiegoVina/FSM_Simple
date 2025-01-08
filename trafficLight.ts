@@ -7,7 +7,7 @@ const transitions: Record<TrafficLightState, Record<TrafficLightEvent, TrafficLi
     yellow: { CHANGE: "red" },
 };
 
-class TrafficLight {
+class TrafficLight {                    // Creating a class allows encapsulation
     private state: TrafficLightState;
 
     constructor(initialState: TrafficLightState) {
@@ -37,3 +37,7 @@ const trafficLight = new TrafficLight("red");
 trafficLight.changeState("CHANGE"); // Light is now green
 trafficLight.changeState("CHANGE"); // Light is now yellow
 trafficLight.changeState("CHANGE"); // Light is now red
+
+/*As we can see, the transitions using Record<> allows us to create a key value pair and avoid using 
+several if-else statements, which improves efficiency. Also, adding new states is easy
+and we wouldn't have to restructure our logic*/
